@@ -44,3 +44,10 @@ async def match_image(file: UploadFile = File(...)):
         return str(labels_df.iloc[best_idx]['label'])
     else:
         return "미등록"
+
+if __name__ == "__main__":
+    import os
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("app:app", host="0.0.0.0", port=port)
+

@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pillow
+numpy
+pandas
+open-clip-torch
+torch
+imagehash
+scikit-learn

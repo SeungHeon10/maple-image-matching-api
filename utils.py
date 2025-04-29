@@ -6,9 +6,12 @@ import imagehash
 
 def get_clip_model(device='cpu'):
     model, _, preprocess = open_clip.create_model_and_transforms(
-        'ViT-B-32', pretrained='laion2b_s34b_b79k')
+        'ViT-B-32',
+        pretrained='laion2b_s34b_b79k',
+        device=device,
+        cache_dir="./model_cache"  # 👈 여기가 핵심!
+    )
     model.eval()
-    model.to(device)
     return model, preprocess
 
 def extract_embedding(image_path, model, preprocess, device='cpu'):
